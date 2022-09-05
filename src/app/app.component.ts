@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IntrotabComponent} from './introtab/introtab.component';
 
 @Component({
   selector: 'app-root',
