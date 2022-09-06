@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {updateConfigState} from '../configstate/configstate.actions';
-import {configState} from '../configstate/configstate.reducer';
+import {configState} from '../configstate/configstate.shape';
 
 @Component({
   selector: 'introtab-component',
