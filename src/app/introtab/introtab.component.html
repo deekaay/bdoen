@@ -1,1 +1,7 @@
 <p>introtab works!</p>
+
+<div *ngIf="configState$ | async as configState">
+    Target Failstacks: {{ configState.targetFailStacks }} 
+</div>
+
+<button type="button" (click)="updateConfig()">xx </button>
