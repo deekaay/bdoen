@@ -1,11 +1,19 @@
 
 import {createReducer, on} from '@ngrx/store';
-import {updateConfigState} from './configstate.actions';
-import {configState} from './configstate.shape';
+import {updateConfigState, testConfigState, updateSingleProp} from './configstate.actions';
+import {configState} from '../objdef/configstate.shape';
 
-export const initialState : configState = { targetFailStacks: 20 };
+export const initialState : configState = { 
+        targetFailStacks: 20, 
+        metastrategy: [ ], 
+        maxAttempts: 500,
+        numIterations: 20,
+        ladder: [ ]
+    };
 
 export const configReducer = createReducer(
     initialState,
-    on(updateConfigState, (state, {args}) => { console.log('Hello'); console.log(args); return { targetFailStacks: 40 } ; })
+    //on(updateConfigState, (state, {args}) => { let x = {...args}; x.targetFailStacks++; return x; }),
+    //on(testConfigState, (state) => { let z = { ...state}; z.targetFailStacks++; return z;} ),
+    on(updateSingleProp, (state, {args} ) => { let z = { ...state, ...{args}}; return z;} )
 );

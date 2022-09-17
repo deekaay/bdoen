@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {updateConfigState} from '../configstate/configstate.actions';
-import {configState} from '../configstate/configstate.shape';
+import {testConfigState} from '../configstate/configstate.actions';
+import {configState} from '../objdef/configstate.shape';
 
 @Component({
   selector: 'introtab-component',
@@ -23,7 +23,7 @@ export class IntrotabComponent implements OnInit {
 
 updateConfig() {
   console.log('updatedConfig function');
-  this.store.dispatch(updateConfigState({ args : { targetFailStacks : 41 } } ))
+  this.store.dispatch(testConfigState());
   console.log(this.configState$);
 }
 
