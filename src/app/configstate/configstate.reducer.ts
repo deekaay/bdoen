@@ -8,7 +8,7 @@ export const initialState : configState = {
         metastrategy: [ ], 
         maxAttempts: 500,
         numIterations: 20,
-        ladder: [ ]
+        ladder: [ { startfs: 0, endfs: 10, strategy: [ 1 ] }]
     };
 
 export const configReducer = createReducer(

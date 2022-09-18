@@ -1,6 +1,7 @@
 export interface Strategy 
 {
     name : { en : string },
+    id: number,
     requires : object,
     minuse: number,
     maxuse: number,

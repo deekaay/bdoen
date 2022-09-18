@@ -1,0 +1,13 @@
+<div class="dk-rung-pane">
+    <div> Index : {{indexNum }} </div>
+    <div *ngIf="indexNum < myRung.strategy.length">
+        startfs: {{ myRung.startfs }} 
+        stopfs: {{ myRung.endfs }} 
+        strategy:
+        <div *ngFor="let x of myRung.strategy; let i=index;">
+            {{i+1}}: <select id="stratpicker_{{indexNum}}_{{i+1}}">  
+                    <option *ngFor="let z of getViableStrategies()" [selected]="z.id == x"> {{z.name.en}} </option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 import {Strategy} from '../objdef/strategy.shape';
 
-var advlog :Strategy = {
-    name : { en : "Free Failstack (Adv Log)" },
-    id: 1,
+var valkscry :Strategy = {
+    name : { en : "Valk's Cry" },
+    id: 2,
     requires : { },
     minuse: 0,
-    maxuse: 4,
+    maxuse: 14,
     chance : function(x : number)
         {
         return { success: 0, failure: 1, break: 0};
@@ -19,4 +19,4 @@ var advlog :Strategy = {
     cost:
     { }
 };
-export {advlog};
+export {valkscry};

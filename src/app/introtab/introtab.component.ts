@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {testConfigState} from '../configstate/configstate.actions';
 import {configState} from '../objdef/configstate.shape';
+import {Rung} from '../objdef/rung.shape';
 
 @Component({
   selector: 'introtab-component',

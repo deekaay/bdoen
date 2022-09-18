@@ -8,13 +8,15 @@ import { StoreModule } from '@ngrx/store';
 import {configReducer} from './configstate/configstate.reducer';
 import { ConfigtabComponent } from './configtab/configtab.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { RungpanelComponent } from './rungpanel/rungpanel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IntrotabComponent,
-    ConfigtabComponent
+    ConfigtabComponent,
+    RungpanelComponent
   ],
   imports: [
     BrowserModule,
