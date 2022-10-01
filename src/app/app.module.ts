@@ -10,6 +10,7 @@ import { ConfigtabComponent } from './configtab/configtab.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { RungpanelComponent } from './rungpanel/rungpanel.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { LadderpanelComponent } from './ladderpanel/ladderpanel.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     AppComponent,
     IntrotabComponent,
     ConfigtabComponent,
-    RungpanelComponent
+    RungpanelComponent,
+    LadderpanelComponent
   ],
   imports: [
     BrowserModule,

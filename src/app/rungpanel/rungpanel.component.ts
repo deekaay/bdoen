@@ -16,11 +16,11 @@ export class RungpanelComponent implements OnInit {
 
   configState$ : Observable<configState>;
   @Input() indexNum : number = -1;
-  myRung : Rung =  { startfs: 0, endfs: 0, strategy : [ ] }
+  @Input() rungContent : Rung = new Rung();
 
   constructor(private store: Store<{ myConfigState: configState }>)  { 
     this.configState$ = store.select('myConfigState');
-    this.configState$.subscribe( data => { console.log(data); this.myRung = data.ladder[this.indexNum]; } ) ;
+    this.configState$.subscribe( data => { console.log(data); this.rungContent = data.ladder[this.indexNum]; } ) ;
     console.log('INit');
 
   }
@@ -30,8 +30,8 @@ export class RungpanelComponent implements OnInit {
 
   getViableStrategies() : Array<Strategy> 
     { 
-    return allstrats.filter( x => x.minuse <= this.myRung.startfs && x.maxuse >= this.myRung.startfs  && 
-        (this.myRung.strategy.indexOf(x.id) == this.indexNum || this.myRung.strategy.indexOf(x.id) < 0 ));
+    return allstrats.filter( x => x.minuse <= this.rungContent.startfs && x.maxuse >= this.rungContent.startfs  && 
+        (this.rungContent.strategy.indexOf(x.id) == this.indexNum || this.rungContent.strategy.indexOf(x.id) < 0 ));
     }
 
 }

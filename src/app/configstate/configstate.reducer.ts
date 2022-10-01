@@ -15,5 +15,5 @@ export const configReducer = createReducer(
     initialState,
     //on(updateConfigState, (state, {args}) => { let x = {...args}; x.targetFailStacks++; return x; }),
     //on(testConfigState, (state) => { let z = { ...state}; z.targetFailStacks++; return z;} ),
-    on(updateSingleProp, (state, {args} ) => { let z = { ...state, ...{args}}; return z;} )
+    on(updateSingleProp, (state, {args} ) => { let z = { ...state, ...args}; return z;} )
 );
