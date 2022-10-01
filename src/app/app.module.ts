@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { IntrotabComponent } from './introtab/introtab.component';
 
 import { StoreModule } from '@ngrx/store';
-import {configReducer} from './configstate/configstate.reducer';
+import {configReducer, initialState } from './configstate/configstate.reducer';
 import { ConfigtabComponent } from './configtab/configtab.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { RungpanelComponent } from './rungpanel/rungpanel.component';
@@ -24,6 +24,7 @@ import { LadderpanelComponent } from './ladderpanel/ladderpanel.component';
   imports: [
     BrowserModule,
     StoreModule.forRoot({ myConfigState : configReducer }),
+    StoreModule.forFeature('index', configReducer, {initialState} ),
     FormsModule,
     ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ 
