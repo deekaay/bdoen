@@ -9,6 +9,7 @@ import {configReducer} from './configstate/configstate.reducer';
 import { ConfigtabComponent } from './configtab/configtab.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { RungpanelComponent } from './rungpanel/rungpanel.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -22,7 +23,12 @@ import { RungpanelComponent } from './rungpanel/rungpanel.component';
     BrowserModule,
     StoreModule.forRoot({ myConfigState : configReducer }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({ 
+      maxAge: 25,
+      autoPause: true
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
