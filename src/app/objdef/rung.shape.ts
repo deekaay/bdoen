@@ -1,11 +1,12 @@
 import {Strategy} from './strategy.shape';
 
 export class Rung {
-    constructor()
+
+    constructor(sfs?: number )
     {
-            this.startfs = 0;
-            this.endfs = 0;
-            this.strategy = [ ];
+            this.startfs = sfs ?? 0;
+            this.endfs = this.startfs + 1;
+            this.strategy = [ -1 ];
     }
     startfs : number;
     endfs : number;

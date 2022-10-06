@@ -1,7 +1,8 @@
 
 import {createReducer, on} from '@ngrx/store';
-import {updateConfigState, testConfigState, updateSingleProp} from './configstate.actions';
+import {updateConfigState, testConfigState, updateSingleProp, updateRungStrategy, addRungToLadder ,deleteRungFromLadder} from './configstate.actions';
 import {configState} from '../objdef/configstate.shape';
+import {Rung} from '../objdef/rung.shape';
 
 export const initialState : configState = { 
         targetFailStacks: 20, 
@@ -15,5 +16,27 @@ export const configReducer = createReducer(
     initialState,
     //on(updateConfigState, (state, {args}) => { let x = {...args}; x.targetFailStacks++; return x; }),
     //on(testConfigState, (state) => { let z = { ...state}; z.targetFailStacks++; return z;} ),
-    on(updateSingleProp, (state, {args} ) => { let z = { ...state, ...args}; return z;} )
+    on(updateSingleProp, (state, {args} ) => { let z = { ...state, ...args}; return z;} ),
+    on(updateRungStrategy, (state, args)  => 
+        { let z : Array<number> = [...state.ladder[args.rung].strategy];
+            if (!z[args.stratIndex])
+                z.push(args.newVal);
+            else
+                z[args.stratIndex] = args.newVal;
+            
+        // Need to splice z back into the ladder array.
+        let q : Array<Rung> = [...state.ladder.slice(0,args.rung), {...state.ladder[args.rung], strategy: z}, ...state.ladder.slice(args.rung+1) ];
+        console.log(q);
+        return {...state, ladder: q };
+        }) ,
+    on(addRungToLadder, 
+        (state, {pos}) =>  {
+            let q: Array<Rung> = [...state.ladder.slice(0,pos) , new Rung(state.ladder[pos-1].endfs+1), ...state.ladder.slice(pos)];
+            return { ...state, ladder: q };
+        }) ,
+    on(deleteRungFromLadder, 
+        (state, {pos}) =>  {
+            let q: Array<Rung> = [...state.ladder.slice(0,pos) , ...state.ladder.slice(pos+1)];
+            return { ...state, ladder: q };
+        })
 );

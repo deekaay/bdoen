@@ -4,8 +4,10 @@
     stopfs: {{ rungContent.endfs }}
     strategy:
     <div *ngFor="let x of rungContent.strategy; let i=index;">
-        {{i+1}}: <select id="stratpicker_{{indexNum}}_{{i+1}}">
-            <option *ngFor="let z of getViableStrategies()" [selected]="z.id == x"> {{z.name.en}} </option>
+        {{i+1}}: <select (change)="updateStrategy(i,$event)" id="stratpicker_{{indexNum}}_{{i+1}}">
+            <option *ngFor="let z of getViableStrategies()" [value]="z.id" [selected]="z.id == x"> {{z.name.en}} </option>
         </select>
     </div>
+    <button (click)="addRung(indexNum+1)">Add rung</button>
+    <button (click)="deleteRung(indexNum)">Delete rung</button>
 </div>

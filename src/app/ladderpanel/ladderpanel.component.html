@@ -1,4 +1,4 @@
 (Ladder Panel) 
 <div *ngFor="let x of ladder; let i=index;">
-    <rung-panel [indexNum]="i" [rungContent]="x"> </rung-panel>
+    <rung-panel [indexNum]="i" [rungContent]="x" [totalRungs]="ladder.length"> </rung-panel>
 </div>

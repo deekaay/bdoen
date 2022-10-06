@@ -24,7 +24,7 @@ import { LadderpanelComponent } from './ladderpanel/ladderpanel.component';
   imports: [
     BrowserModule,
     StoreModule.forRoot({ myConfigState : configReducer }),
-    StoreModule.forFeature('index', configReducer, {initialState} ),
+    StoreModule.forFeature('myConfigState', configReducer, {initialState} ),
     FormsModule,
     ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ 
