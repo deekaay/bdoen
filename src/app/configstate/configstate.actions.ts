@@ -13,4 +13,6 @@ export const updateRungStrategy = createAction('Update Strategy within Rung',
 export const addRungToLadder  = createAction('Add Rung', props<{pos: number}>() );
 export const deleteRungFromLadder  = createAction('Delete Rung', props<{pos: number}>() );
 
+export const changeEndFS  = createAction('Change End FS', props<{rung: number, endfs: number}>() );
+
 export const testConfigState = createAction('[test test test]');

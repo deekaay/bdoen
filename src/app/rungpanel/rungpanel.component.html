@@ -1,13 +1,22 @@
-<div class="dk-rung-pane">
-    <div> Rung : {{indexNum}} </div>
-    startfs: {{ rungContent.startfs }}
-    stopfs: {{ rungContent.endfs }}
-    strategy:
-    <div *ngFor="let x of rungContent.strategy; let i=index;">
-        {{i+1}}: <select (change)="updateStrategy(i,$event)" id="stratpicker_{{indexNum}}_{{i+1}}">
-            <option *ngFor="let z of getViableStrategies()" [value]="z.id" [selected]="z.id == x"> {{z.name.en}} </option>
-        </select>
+<div class="dk-rung-pane container">
+    <div class="row">
+        <div class="col-md-2">
+            <button (click)="addRung(indexNum+1)">+</button>
+            <button *ngIf="totalRungs>1" (click)="deleteRung(indexNum)">-</button>
+        </div>
+        <div class="col-md-4">
+            startfs: {{ rungContent.startfs }}
+            stopfs: <input type="text" length="3" value="{{rungContent.endfs}}"
+                (change)="changeStopFS(indexNum, $event)" />
+        </div>
+        <div class="col-md-6">
+            strategy:
+            <div *ngFor="let x of rungContent.strategy; let i=index;">
+                {{i+1}}: <select (change)="updateStrategy(i,$event)" id="stratpicker_{{indexNum}}_{{i+1}}">
+                    <option *ngFor="let z of getViableStrategies()" [value]="z.id" [selected]="z.id == x"> {{z.name.en}}
+                    </option>
+                </select>
+            </div>
+        </div>
     </div>
-    <button (click)="addRung(indexNum+1)">Add rung</button>
-    <button (click)="deleteRung(indexNum)">Delete rung</button>
 </div>

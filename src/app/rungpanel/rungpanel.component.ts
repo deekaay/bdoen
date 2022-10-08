@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {Rung} from '../objdef/rung.shape';
 import {Strategy} from '../objdef/strategy.shape';
 import {allstrats} from '../strategies/strategies';
-import {updateRungStrategy, addRungToLadder, deleteRungFromLadder} from '../configstate/configstate.actions';
+import {changeEndFS, updateRungStrategy, addRungToLadder, deleteRungFromLadder} from '../configstate/configstate.actions';
 
 @Component({
   selector: 'rung-panel',
@@ -50,6 +50,11 @@ export class RungpanelComponent implements OnInit {
   deleteRung(pos: number) : void {
     console.log("Deleting rung");
     this.store.dispatch(deleteRungFromLadder({pos : pos}));
+  }
+
+  changeStopFS(index :number, e: any) : void {
+    console.log("Changing index: " + index + " endFS to : " + e.target.value);
+    this.store.dispatch(changeEndFS({ rung: this.indexNum, endfs : parseInt(e.target.value) }));
   }
 
 }
