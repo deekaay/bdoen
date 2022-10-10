@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {testConfigState} from '../configstate/configstate.actions';
-import {configState} from '../objdef/configstate.shape';
-import {Rung} from '../objdef/rung.shape';
+import {configState} from '../common/objdef/configstate.shape';
+import {Rung} from '../common/objdef/rung.shape';
 
 @Component({
   selector: 'introtab-component',

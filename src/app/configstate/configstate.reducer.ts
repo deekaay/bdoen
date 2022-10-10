@@ -1,8 +1,8 @@
 
 import {createReducer, on} from '@ngrx/store';
-import {updateConfigState, testConfigState, updateSingleProp, updateRungStrategy, addRungToLadder ,deleteRungFromLadder, changeEndFS} from './configstate.actions';
-import {configState} from '../objdef/configstate.shape';
-import {Rung} from '../objdef/rung.shape';
+import {addSimulationResult, updateConfigState, testConfigState, updateSingleProp, updateRungStrategy, addRungToLadder ,deleteRungFromLadder, changeEndFS} from './configstate.actions';
+import {configState} from '../common/objdef/configstate.shape';
+import {Rung} from '../common/objdef/rung.shape';
 import { state } from '@angular/animations';
 
 export const initialState : configState = { 
@@ -47,6 +47,6 @@ export const configReducer = createReducer(
         console.log(q);
         return {...state, ladder: q };
 
-
-    })
+    }),
+    on(addSimulationResult, ( state, args ) => { console.log(args); return state; })
 );

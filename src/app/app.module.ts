@@ -12,6 +12,10 @@ import { RungpanelComponent } from './rungpanel/rungpanel.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { LadderpanelComponent } from './ladderpanel/ladderpanel.component';
 
+import {CalcerEffects} from './effects/calcer.effects';
+import {HttpClientModule} from '@angular/common/http';
+import {EffectsModule} from '@ngrx/effects';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +34,9 @@ import { LadderpanelComponent } from './ladderpanel/ladderpanel.component';
     StoreDevtoolsModule.instrument({ 
       maxAge: 25,
       autoPause: true
-    })
-
+    }),
+  EffectsModule.forRoot ([ CalcerEffects ]),
+  HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {configState} from '../objdef/configstate.shape';
+import {configState} from '../common/objdef/configstate.shape';
 import {Store} from '@ngrx/store';
-import {Rung} from '../objdef/rung.shape';
+import {Rung} from '../common/objdef/rung.shape';
 
 @Component({
   selector: 'ladder-panel',

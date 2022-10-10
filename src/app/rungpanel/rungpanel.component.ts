@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {configState} from '../objdef/configstate.shape';
+import {configState} from '../common/objdef/configstate.shape';
 import {Store} from '@ngrx/store'
 import {Observable} from 'rxjs';
-import {Rung} from '../objdef/rung.shape';
-import {Strategy} from '../objdef/strategy.shape';
-import {allstrats} from '../strategies/strategies';
+import {Rung} from '../common/objdef/rung.shape';
+import {Strategy} from '../common/objdef/strategy.shape';
+import {allstrats} from '../common/strategies/strategies';
 import {changeEndFS, updateRungStrategy, addRungToLadder, deleteRungFromLadder} from '../configstate/configstate.actions';
 
 @Component({

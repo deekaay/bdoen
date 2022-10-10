@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {updateConfigState, updateSingleProp} from '../configstate/configstate.actions';
-import {configState} from '../objdef/configstate.shape';
+import {configState} from '../common/objdef/configstate.shape';
 import {FormGroup} from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {allstrats} from '../strategies/strategies';
+import {allstrats} from '../common/strategies/strategies';
 
 @Component({
   selector: 'configtab-component',
@@ -42,6 +42,11 @@ metaConfigChange(event: any) {
   var p: string = event.target.id.toString();
   o[p as keyof typeof o] = event.target.value;
   this.store.dispatch(updateSingleProp ({ args : o }));
+}
+
+go(event : any) {
+  this.store.dispatch({ type: 'Start Simultation' } );
+  console.log('go');
 }
 
 }
