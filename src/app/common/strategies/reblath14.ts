@@ -16,12 +16,13 @@ var reblath14 :Strategy = {
         return { success: v, failure: 1 - v, break: 0};
         },
     success:
-        { "lose" :  { "16001_14" : 1 }  ,
-        "gain" :  { "16001_15" : 1 } },
+        { "invChange" :  
+            { "16001_14" : -1 , 
+            "16001_15" : 1  }},
     failure:
         { "gain_fs" : 1 },
     break:
-        {   },
+        {  },
     cost:
         { "10181" : 1 }
 };

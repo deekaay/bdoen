@@ -4,7 +4,7 @@ import {from, Observable} from 'rxjs';
 import {configState} from '../common/objdef/configstate.shape';
 import {Store} from '@ngrx/store';
 import {take} from 'rxjs/operators';
-import {execute_metastrategy} from '../common/executor.js';
+import {execute_metastrategy} from '../common/executor';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class CalcerService {
   s : configState = { targetFailStacks: 1, metastrategy: [ ], maxAttempts: 1, numIterations: 1, ladder: [ ] } ;
   constructor(private store$: Store<{ myConfigState: configState }>,
       private http : HttpClient) { 
-       store$.select('myConfigState').pipe(take(1)).subscribe( x => this.s = x );
+       store$.select('myConfigState').subscribe( x => this.s = x );
       }
 
   runCalc() : Observable<any>

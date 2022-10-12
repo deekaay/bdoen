@@ -3,7 +3,7 @@ import {valkscry} from './valkscry';
 import {reblath14} from './reblath14';
 import {Strategy} from '../objdef/strategy.shape';
 
-let allstrats: Array<Strategy> = [ 
+const allstrats: Array<Strategy> = [ 
     advlog,
     valkscry,
     reblath14

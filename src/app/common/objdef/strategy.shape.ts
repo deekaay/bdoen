@@ -1,13 +1,16 @@
+import {probObj} from './probobj.shape';
+import {itemCollection} from './itemCollection.shape';
+
 export interface Strategy 
 {
     name : { en : string },
     id: number,
-    requires : object,
+    requires : itemCollection,
     minuse: number,
     maxuse: number,
-    chance(x: number) : object, 
-    success: object,
-    failure : object,
-    break: object,
-    cost: object 
+    chance(x: number) : probObj, 
+    success:  { invChange? : itemCollection },
+    failure : { invChange ? : itemCollection, gain_fs?: number } , 
+    break:  { gain? : itemCollection, lose?: itemCollection}, 
+    cost: itemCollection
 }
