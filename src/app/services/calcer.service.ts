@@ -7,6 +7,8 @@ import {take} from 'rxjs/operators';
 import {execute_metastrategy} from '../common/executor';
 import {ladder_result} from '../common/objdef/ladder_result.shape';
 import {of} from 'rxjs';
+import {v4 as uuid} from 'uuid';
+import {calcResult} from '../common/objdef/calcResult.shape';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +16,17 @@ import {of} from 'rxjs';
 
 export class CalcerService {
 
-  s : configState = { targetFailStacks: 1, metastrategy: [ ], maxAttempts: 1, numIterations: 1, ladder: [ ], ladderResults : [ ]  } ;
+  s : configState = { targetFailStacks: 1, metastrategy: [ ], maxAttempts: 1, numIterations: 1, ladder: [ ], ladderResults : [ ], configVersion: uuid()  } ;
   constructor(private store$: Store<{ myConfigState: configState }>,
       private http : HttpClient) { 
        store$.select('myConfigState').subscribe( x => this.s = x );
       }
 
-  runCalc() : Observable<Array<ladder_result>>
+  runCalc() : Observable<calcResult>
   {
-    console.log('Run calc service');
+    console.log('Run calc service. Current version: ' + this.s.configVersion);
     let x : Array<ladder_result> = execute_metastrategy(this.s); 
-    return of(x);
+    return of({ results: x, configVersion: this.s.configVersion } );
   }  
 
 }

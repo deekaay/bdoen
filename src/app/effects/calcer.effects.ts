@@ -15,7 +15,7 @@ export class CalcerEffects {
         mergeMap(() => this.calcerService.runCalc()
         .pipe(
             //map(x => ({ type : 'Simulation Result Received', payload: x })),
-            map( x => ({type: 'Simulation Result Received', payload: x }  ) ),
+            map( x => ({type: 'Simulation Result Received', ...x }  ) ),
             catchError(err => { return of( { type : 'Simulation result error', payload: err  }); } )
             ))
         )
