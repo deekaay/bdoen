@@ -1,6 +1,7 @@
 
 
 import {Rung} from './rung.shape';
+import {ladder_result} from './ladder_result.shape';
 
 
 
@@ -11,4 +12,5 @@ export interface configState
     maxAttempts: number,
     numIterations: number,
     ladder: Array<Rung>
+    ladderResults: Array<ladder_result>;
     }

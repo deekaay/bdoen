@@ -10,6 +10,7 @@ export const initialState : configState = {
         metastrategy: [ ], 
         maxAttempts: 500,
         numIterations: 20,
+        ladderResults: [ ],
         ladder: [ { startfs: 0, endfs: 10, strategy: [ 1 ] }]
     };
 
@@ -48,5 +49,5 @@ export const configReducer = createReducer(
         return {...state, ladder: q };
 
     }),
-    on(addSimulationResult, ( state, args ) => { console.log(args); return state; })
+    on(addSimulationResult, ( state, args ) => { console.log('Hi'); console.log(args); console.log('bye'); return {...state, ladder_result: args }; } )
 );

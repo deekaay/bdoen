@@ -11,7 +11,7 @@ import {tryLog} from './objdef/tryLog.shape';
 import {getStrategy} from './util/getStrategy';
 
 
-export function execute_metastrategy(state : configState) : void 
+export function execute_metastrategy(state : configState) : Array<ladder_result>
 {
 
     console.log('Execute metastrategy');
@@ -30,6 +30,7 @@ export function execute_metastrategy(state : configState) : void
     } 
 
     console.log(ladder_results);
+    return ladder_results;
 
     total_cost = ladder_results.reduce((s, x) => s+x.cost, 0 );
 }
